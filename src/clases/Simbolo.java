@@ -10,30 +10,28 @@ package clases;
  * @author Chiko malo
  */
 public enum Simbolo {
+    UNO("1"),
+    DOS("2"),
+    TRES("3"),
+    CUATRO("4"),
+    CINCO("5"),
+    SEIS("6"),
+    SIETE("7"),
+    OCHO("8"),
+    NUEVE("9"),
+    PUNTO("."),
+    PUNTOCOMA(";"),
     COMA(","),
-    DOS_PUNTOS(";"),
-    LLAVES("{}"),
-    CORCHETES("[]"),
-    PUNTO(".");
-
-    public static Simbolo getCOMA() {
-        return COMA;
+    LLAVE1("{"),
+    LLAVE2("}"),
+    CORCHETE1("["),
+    CORCHETE2("]");
+//public String getNombreProducto(){ return this.nombreProducto; }
+    private String caracter;
+    private Simbolo(String caracter){
+        this.caracter=caracter;
     }
-    public static Simbolo getDOS_PUNTOS() {
-        return DOS_PUNTOS;
+    public String getCaracter(){ 
+        return this.caracter;
     }
-    public static Simbolo getLLAVES() {
-        return LLAVES;
-    }
-    public static Simbolo getCORCHETES() {
-        return CORCHETES;
-    }
-    public static Simbolo getPUNTO() {
-        return PUNTO;
-    }
-    String texto;
-    private Simbolo(String texto){
-        this.texto=texto;
-    }
-    
 }
