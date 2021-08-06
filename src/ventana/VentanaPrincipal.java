@@ -237,10 +237,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         cadena=jTextField1.getText();
         textos.addElement(cadena);
-        eliminarEspacio(cadena);
         jTextField1.setText(" ");
+        
+        eliminarEspacio(cadena);
         for (int i=0;i<arregloCadenas.length;i++){
-            textos1.addElement(arregloCadenas[i]);
+            if(arregloCadenas[i]!=null){
+                textos1.addElement(arregloCadenas[i]);
+                tokenNumero(arregloCadenas[i]);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
