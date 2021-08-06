@@ -27,6 +27,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private int de=0;
     private int cara=0;
     private int ide=0;
+    private String concatenar="";
     /**
      * Creates new form VentanaPrincipal
      */
@@ -239,13 +240,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         textos.addElement(cadena);
         jTextField1.setText(" ");
         
+        
         eliminarEspacio(cadena);
-        for (int i=0;i<arregloCadenas.length;i++){
+        for (int i=0;i<10;i++){
             if(arregloCadenas[i]!=null){
                 textos1.addElement(arregloCadenas[i]);
                 tokenNumero(arregloCadenas[i]);
             }
+            if(entero[i]!=null){
+                concatenar=concatenar+entero[i]+"-";
+            }
         }
+        jTextField3.setText(concatenar);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
