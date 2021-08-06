@@ -22,7 +22,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private String caracter[]=new String[10];
     private String id[]=new String[10];
     //indices de cada arreglo global
-    private int cod;
     private int er=0;
     private int en=0;
     private int de=0;
@@ -31,7 +30,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
-    int cod;
+    private int codigo;
     String cadena="";
     public VentanaPrincipal() {
         initComponents();
@@ -44,15 +43,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         System.out.println(mensaje);
     }
     public void eliminarEspacio(String cadena){
-        cod=0;
+        codigo=0;
         String newCadena="";
         for(int i=0; i<cadena.length(); i++){
             if(cadena.charAt(i)!=' '){
                 newCadena=newCadena+cadena.charAt(i);
             }
             if(cadena.charAt(i)==' '){   
-                arregloCadenas[cod]=newCadena;
-                cod++;
+                arregloCadenas[codigo]=newCadena;
+                codigo++;
                 newCadena="";
             }
         }
@@ -76,8 +75,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             else if(newCadena.equals(PUNTO.getCaracter())){ 
                 totalRecorrido++; punto++; posPunto=i;
             }
-            else {if(i==0){letra=true;}}
+            else {if(i==0){letra=true;}
+            }
         }
+        if(punto==0 && totalRecorrido==cadena.length()){
+            entero[en]=cadena; en++;
+        }else if(punto==1 && posPunto!=0 && posPunto!=(cadena.length()-1)&& totalRecorrido==cadena.length()){
+            decimal[de]=cadena; de++;
+        }else if(posPunto==(cadena.length()-1)){
+            caracter[cara]=""+cadena.charAt(cadena.length()-1); cara++;
+            if(letra==true){tockenIde(cadena);}
+        }else { tockenIde(cadena);}
+        //String newCadena=""+cadena.charAt(i);
     }
     public void tockenIde(String cadena){}
     /**
