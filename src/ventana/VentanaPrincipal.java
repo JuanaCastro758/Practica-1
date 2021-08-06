@@ -234,14 +234,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cadena=jTextField1.getText();
-        textos.addElement(cadena);
-        jTextField1.setText(" ");
-        
-        
-        eliminarEspacio(cadena);
+    public void agregarTokens(){
         for (int i=0;i<10;i++){
             if(arregloCadenas[i]!=null){
                 textos1.addElement(arregloCadenas[i]);
@@ -252,6 +245,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         }
         jTextField3.setText(concatenar);
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        cadena=jTextField1.getText();
+        textos.addElement(cadena);
+        jTextField1.setText(" ");
+        
+        
+        eliminarEspacio(cadena);
+        agregarTokens();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
