@@ -16,6 +16,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     DefaultListModel textos=new DefaultListModel();
     DefaultListModel textos1=new DefaultListModel();
     private String arregloCadenas[]=new String[10];
+    private String entero[]=new String[10];
+    private String decimal[]=new String[10];
+    private String error[]=new String[10];
+    private String caracter[]=new String[10];
+    private String id[]=new String[10];
+    //indices de cada arreglo global
+    private int cod;
+    private int er=0;
+    private int en=0;
+    private int de=0;
+    private int cara=0;
+    private int ide=0;
     /**
      * Creates new form VentanaPrincipal
      */
