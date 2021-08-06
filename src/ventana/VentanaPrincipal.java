@@ -13,16 +13,36 @@ import javax.swing.DefaultListModel;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     DefaultListModel textos=new DefaultListModel();
+    DefaultListModel textos1=new DefaultListModel();
+    private String arregloCadenas[]=new String[10];
     /**
      * Creates new form VentanaPrincipal
      */
+    int cod;
+    String cadena="";
     public VentanaPrincipal() {
         initComponents();
         textos=new DefaultListModel();
+        textos1=new DefaultListModel();
         jList1.setModel(textos);
+        jList2.setModel(textos1);
     }
-    public void TextoCadena(){
-    
+    public void mensaje(String mensaje){
+        System.out.println(mensaje);
+    }
+    public void eliminarEspacio(String cadena){
+        cod=0;
+        String newCadena="";
+        for(int i=0; i<cadena.length(); i++){
+            if(cadena.charAt(i)!=' ' && cadena.charAt(i)!='\n'){
+                newCadena=newCadena+cadena.charAt(i);
+            }
+            if(cadena.charAt(i)==' ' || cadena.charAt(i)=='\n'){   
+                arregloCadenas[cod]=newCadena;
+                cod++;
+                newCadena="";
+            }
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +69,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        prueba = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -145,6 +167,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(20, 220, 370, 230);
 
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        prueba.setViewportView(jList2);
+
+        getContentPane().add(prueba);
+        prueba.setBounds(490, 240, 280, 140);
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/im1.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -158,10 +190,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String agregar=jTextField1.getText();
-        textos.addElement(agregar);
-        
+        cadena=jTextField1.getText();
+        textos.addElement(cadena);
+        eliminarEspacio(cadena);
         jTextField1.setText(" ");
+        for (int i=0;i<arregloCadenas.length;i++){
+            textos1.addElement(arregloCadenas[i]);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -214,6 +250,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -221,5 +258,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JScrollPane prueba;
     // End of variables declaration//GEN-END:variables
 }
