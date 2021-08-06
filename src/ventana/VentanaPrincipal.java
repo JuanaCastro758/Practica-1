@@ -5,6 +5,7 @@
  */
 package ventana;
 
+import static clases.Simbolo.*;
 import javax.swing.DefaultListModel;
 
 /**
@@ -42,6 +43,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 cod++;
                 newCadena="";
             }
+        }
+    }
+    public void tokenNumero(String cadena){
+        int punto=0;
+        int posPunto=0;
+        int totalRecorrido=0;
+        boolean letra=false;
+        for(int i=0; i<cadena.length(); i++){
+            String newCadena=""+cadena.charAt(i);
+            if(newCadena.equals(UNO.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(DOS.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(TRES.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(CUATRO.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(CINCO.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(SEIS.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(SIETE.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(OCHO.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(NUEVE.getCaracter())){ totalRecorrido++;}
+            else if(newCadena.equals(PUNTO.getCaracter())){ 
+                totalRecorrido++; punto++; posPunto=i;
+            }
+            else {if(i==0){letra=true;}}
         }
     }
     /**
