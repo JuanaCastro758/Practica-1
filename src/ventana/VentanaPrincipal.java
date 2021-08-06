@@ -34,10 +34,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cod=0;
         String newCadena="";
         for(int i=0; i<cadena.length(); i++){
-            if(cadena.charAt(i)!=' ' && cadena.charAt(i)!='\n'){
+            if(cadena.charAt(i)!=' '){
                 newCadena=newCadena+cadena.charAt(i);
             }
-            if(cadena.charAt(i)==' ' || cadena.charAt(i)=='\n'){   
+            if(cadena.charAt(i)==' '){   
                 arregloCadenas[cod]=newCadena;
                 cod++;
                 newCadena="";
@@ -197,7 +197,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         for (int i=0;i<arregloCadenas.length;i++){
             textos1.addElement(arregloCadenas[i]);
         }
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
